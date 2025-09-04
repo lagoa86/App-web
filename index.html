@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000" />
   <title>IMOTV - Vingadores Ultimato em 4K</title>
 
   <!-- Meta tags para WhatsApp -->
@@ -12,7 +13,7 @@
   <meta property="og:url" content="https://seusite.com" />
   <meta property="og:type" content="website" />
 
-  <!-- Fontes futuristas -->
+  <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
 
@@ -20,7 +21,6 @@
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
-    /* Reset básico para mobile */
     * {
       margin: 0;
       padding: 0;
@@ -46,137 +46,135 @@
     }
 
     header {
-      padding: 20px 15px;
+      padding: 15px 10px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 900;
       letter-spacing: 1px;
       background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 
-        0 0 15px rgba(255, 0, 128, 0.8),
-        0 0 30px rgba(42, 250, 223, 0.7);
-      position: relative;
+        0 0 10px rgba(255, 0, 128, 0.6),
+        0 0 20px rgba(42, 250, 223, 0.5);
     }
 
-    @media (min-width: 768px) {
-      header {
-        font-size: 38px;
-        padding: 40px 20px;
-      }
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ff0080, #2afadf, transparent);
-    }
-
-    /* Player responsivo */
+    /* Player otimizado para mobile */
     .player-container {
       width: 94%;
-      max-width: 1000px;
+      max-width: 450px; /* Tamanho ideal para smartphone */
       margin: 20px auto;
       border: 3px solid #0ff;
-      border-radius: 20px;
-      box-shadow: 
-        0 0 20px rgba(0, 255, 255, 0.6),
-        0 0 40px rgba(0, 170, 255, 0.5),
-        inset 0 0 30px rgba(0, 255, 255, 0.3);
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.5),
+        0 0 30px rgba(0, 170, 255, 0.4),
+        inset 0 0 20px rgba(0, 255, 255, 0.2);
       background: #000;
     }
 
     #player {
       width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9; /* Proporção 16:9 em todos os dispositivos */
+      aspect-ratio: 16 / 9; /* Proporção 16:9 perfeita */
     }
 
     .video-js {
       background: #000;
-      border-radius: 17px;
+      border-radius: 13px;
     }
 
+    /* Força os controles do player serem visíveis no mobile */
     .vjs-control-bar {
-      background: rgba(0, 0, 0, 0.8);
-      font-size: 16px;
+      display: flex !important;
+      opacity: 1 !important;
+    }
+
+    .vjs-play-control {
+      font-size: 1.5em;
+    }
+
+    .vjs-progress-control {
+      height: 10px;
     }
 
     .vjs-big-play-button {
-      font-size: 4em !important;
-      height: 100px !important;
-      width: 100px !important;
-      border-radius: 50% !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
+      font-size: 4em;
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 3px solid #0ff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+
+    .vjs-big-play-button:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "▶";
+      font-size: 3em;
+      color: #fff;
     }
 
     /* Informações do filme */
     .movie-info {
-      max-width: 900px;
+      max-width: 450px;
       margin: 15px auto;
       padding: 15px;
-      background: rgba(10, 20, 40, 0.8);
-      border-radius: 16px;
+      background: rgba(10, 20, 40, 0.85);
+      border-radius: 12px;
       border: 1px solid #2afadf;
-      box-shadow: 0 0 20px rgba(42, 250, 223, 0.2);
+      box-shadow: 0 0 15px rgba(42, 250, 223, 0.15);
     }
 
     .movie-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 26px;
+      font-size: 22px;
       color: #2afadf;
       margin: 0;
-      text-shadow: 0 0 10px rgba(42, 250, 223, 0.5);
+      text-shadow: 0 0 8px rgba(42, 250, 223, 0.5);
     }
 
     .movie-subtitle {
-      font-size: 16px;
-      color: #aaa;
+      font-size: 15px;
+      color: #ccc;
       margin: 8px 0;
     }
 
     .movie-meta {
-      font-size: 15px;
+      font-size: 14px;
       color: #0ff;
       margin: 8px 0;
-      letter-spacing: 1px;
     }
 
     .movie-sinopse {
-      max-width: 700px;
+      max-width: 450px;
       margin: 15px auto;
-      padding: 0 10px;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.6;
       color: #ddd;
+      padding: 0 10px;
     }
 
-    /* Seção de benefícios */
     .features {
-      margin: 30px auto;
-      padding: 25px 20px;
-      max-width: 900px;
+      margin: 25px auto;
+      padding: 30px 20px;
+      max-width: 450px;
       border-radius: 16px;
       background: rgba(10, 15, 30, 0.85);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px);
       border: 1px solid rgba(0, 255, 255, 0.3);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
     }
 
     .features h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 26px;
+      font-size: 22px;
       color: #2afadf;
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
       margin-bottom: 20px;
     }
 
@@ -184,15 +182,16 @@
       list-style: none;
       text-align: left;
       margin: 20px auto;
-      font-size: 17px;
-      line-height: 2.2;
-      max-width: 650px;
-      padding-left: 10px;
+      font-size: 16px;
+      line-height: 2.1;
+      max-width: 400px;
     }
 
     .features ul li {
       position: relative;
       padding-left: 35px;
+      opacity: 0;
+      animation: slideIn 0.6s forwards;
     }
 
     .features ul li::before {
@@ -204,11 +203,21 @@
       color: #2afadf;
     }
 
-    /* Botão CTA grande para toque */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .features ul li:nth-child(1) { animation-delay: 0.2s; }
+    .features ul li:nth-child(2) { animation-delay: 0.4s; }
+    .features ul li:nth-child(3) { animation-delay: 0.6s; }
+    .features ul li:nth-child(4) { animation-delay: 0.8s; }
+    .features ul li:nth-child(5) { animation-delay: 1.0s; }
+
     .cta {
       margin: 25px auto;
-      padding: 18px 35px;
-      font-size: 22px;
+      padding: 16px 35px;
+      font-size: 20px;
       font-weight: bold;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
@@ -216,18 +225,18 @@
       text-decoration: none;
       border-radius: 50px;
       box-shadow: 
-        0 0 20px rgba(255, 0, 128, 0.7),
-        0 0 40px rgba(42, 250, 223, 0.6);
+        0 0 15px rgba(255, 0, 128, 0.6),
+        0 0 30px rgba(42, 250, 223, 0.5);
       display: inline-block;
       transition: all 0.3s ease;
       letter-spacing: 1px;
     }
 
-    .cta:hover, .cta:active {
+    .cta:hover {
       transform: scale(1.05);
       box-shadow: 
-        0 0 30px rgba(255, 0, 128, 0.9),
-        0 0 60px rgba(42, 250, 223, 0.8);
+        0 0 25px rgba(255, 0, 128, 0.8),
+        0 0 50px rgba(42, 250, 223, 0.7);
     }
 
     footer {
@@ -237,20 +246,6 @@
       background: rgba(0, 0, 0, 0.7);
       color: #aaa;
       letter-spacing: 1px;
-      border-top: 1px solid rgba(0, 255, 255, 0.3);
-    }
-
-    footer a {
-      color: #2afadf;
-      text-decoration: none;
-    }
-
-    /* Ajuste para telas menores */
-    @media (max-width: 480px) {
-      .movie-title { font-size: 22px; }
-      .movie-sinopse { font-size: 15px; }
-      .features h2 { font-size: 22px; }
-      .cta { font-size: 20px; padding: 16px 30px; }
     }
   </style>
 </head>
@@ -260,19 +255,21 @@
     🎬 IMOTV | VINGADORES: ULTIMATO EM 4K 🎬
   </header>
 
-  <!-- Player responsivo -->
+  <!-- Player ajustado para smartphone -->
   <div class="player-container">
-    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}">
-      <source src="https://adssxcloud.online/4K/26682.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeo HTML5.
-    </video>
+    <div id="player">
+      <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="450" height="253" data-setup="{}">
+        <source src="https://adssxcloud.online/4K/26682.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo HTML5.
+      </video>
+    </div>
   </div>
 
   <!-- Informações do filme -->
   <div class="movie-info">
     <h1 class="movie-title">Vingadores: Ultimato</h1>
     <p class="movie-subtitle">Avengers: Endgame (2019)</p>
-    <p class="movie-meta">🎬 Ação | Drama | Sci-Fi | ⭐ 8.4/10 | 🔴 4K ULTRA HD</p>
+    <p class="movie-meta">🎬 Ação | Drama | Sci-Fi | ⭐ 8.4/10 | 🔴 4K</p>
   </div>
 
   <p class="movie-sinopse">
@@ -280,17 +277,16 @@
     os Vingadores se reúnem mais uma vez para desfazer as ações de Thanos e restaurar a ordem no universo.
   </p>
 
-  <!-- Seção de benefícios -->
+  <!-- Benefícios -->
   <section class="features">
     <h2>🌟 POR QUE ESCOLHER A IMOTV?</h2>
     <ul>
-      <li><strong>4K & Full HD</strong>: Canais, filmes e séries em máxima qualidade</li>
-      <li><strong>Lançamentos</strong>: Acesso antecipado a novos filmes e temporadas</li>
-      <li><strong>Funciona em tudo</strong>: Smart TV, celular, PC, Fire Stick e Android Box</li>
-      <li><strong>Sem travamentos</strong>: Servidores estáveis e streaming ultra-rápido</li>
-      <li><strong>🎁 Teste grátis</strong>: 4 horas sem compromisso — sem cartão!</li>
+      <li><strong>4K & Full HD</strong>: Máxima qualidade</li>
+      <li><strong>Lançamentos</strong>: Filmes antes da Netflix</li>
+      <li><strong>Funciona em tudo</strong>: Celular, TV, PC</li>
+      <li><strong>Sem travamentos</strong>: Streaming estável</li>
+      <li><strong>🎁 Teste grátis</strong>: 4 horas — sem cartão</li>
     </ul>
-    <!-- WhatsApp com mensagem automática -->
     <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+fazer+o+teste+gr%C3%A1tis+da+IMOTV+agora%2C+por+favor%21" 
        class="cta" target="_blank">
       💬 QUERO MEU TESTE AGORA!
@@ -299,37 +295,32 @@
 
   <footer>
     © 2025 IMOTV – Todos os direitos reservados<br>
-    Suporte via WhatsApp: <a href="https://wa.me/5531992110188">(31) 99211-0188</a>
+    Suporte: <a href="https://wa.me/5531992110188">(31) 99211-0188</a>
   </footer>
 
   <!-- Video.js JS -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
-    // Configuração do player
     const player = videojs('my-video', {
-      fluid: false,
       responsive: true,
-      autoplay: false, // Autoplay desativado para mobile (navegadores bloqueiam)
-      preload: 'metadata', // carrega só metadados primeiro
+      autoplay: false,  // Evita bloqueio no mobile
+      preload: 'metadata', // Leve no início
       controls: true,
+      fluid: false,
       html5: {
         hls: {
           overrideNative: true
-        },
-        nativeAudioInVideo: false
+        }
       }
     });
 
-    // Permite reprodução com toque (crucial para mobile)
-    document.querySelector('.cta, .vjs-big-play-button').addEventListener('click', () => {
-      player.play().catch(e => {
-        console.log("Erro ao reproduzir: ", e);
-      });
+    // No mobile, o play é ativado pelo botão grande
+    player.on('useractive', () => {
+      player.controlBar.show();
     });
 
-    // Mensagem no console para ajudar no debug
-    player.ready(() => {
-      console.log("Player pronto. Toque no botão ou no play para iniciar.");
+    player.on('userinactive', () => {
+      player.controlBar.show(); // Mantém visível
     });
   </script>
 
