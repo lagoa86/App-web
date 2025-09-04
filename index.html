@@ -1,131 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IMOTV - A Revolução do IPTV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMOTV - IPTV ao Vivo</title>
 
-  <!-- Prévia WhatsApp/Facebook -->
-  <meta property="og:title" content="🔥 IMOTV - Assista TV Online Agora 🔥">
-  <meta property="og:description" content="Canais ao vivo, filmes e séries em Full HD. Teste grátis 4h!">
-  <meta property="og:image" content="https://static.vecteezy.com/ti/vetor-gratis/p1/15680570-familia-sentada-no-sofa-e-assistindo-tv-na-sala-de-estar-gratis-vetor.jpg">
-  <meta property="og:url" content="https://SEULINK.com">
+<!-- Meta tags Open Graph para prévia no WhatsApp/Facebook -->
+<meta property="og:title" content="🔥 IMOTV - Assista TV Online Agora 🔥">
+<meta property="og:description" content="Canais ao vivo, filmes e séries em Full HD. Teste grátis 4 horas!">
+<meta property="og:image" content="https://static.vecteezy.com/ti/vetor-gratis/p1/15680570-familia-sentada-no-sofa-e-assistindo-tv-na-sala-de-estar-gratis-vetor.jpg">
+<meta property="og:url" content="https://SEULINK.com">
 
-  <!-- HLS.js para rodar streams .m3u8 -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<!-- Clappr player -->
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', Arial, sans-serif;
-      background: linear-gradient(135deg, #050505, #0f0f1f, #1a002b);
-      color: #fff;
-      text-align: center;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-    header {
-      padding: 25px;
-      font-size: 32px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px #ff00cc, 0 0 40px #00eaff;
-    }
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  text-align: center;
+  background: url('https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
-    #player {
-      width: 100%;
-      max-width: 960px;
-      height: 540px;
-      margin: 40px auto;
-      border: 2px solid #0ff;
-      border-radius: 16px;
-      box-shadow: 0 0 30px #00ffe7, 0 0 60px #ff00de inset;
-      background: #000;
-    }
+header {
+  padding: 30px;
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px #ff00cc, 0 0 40px #00eaff;
+}
 
-    section {
-      margin: 40px auto;
-      padding: 30px;
-      max-width: 900px;
-      border-radius: 16px;
-      background: rgba(10,10,30,0.85);
-      box-shadow: 0 0 25px #ff00de66;
-    }
+#player {
+  width: 100%;
+  max-width: 960px;
+  height: 540px;
+  margin: 40px auto;
+  border: 3px solid #0ff;
+  border-radius: 16px;
+  box-shadow: 0 0 30px #00ffe7, 0 0 60px #ff00de inset;
+  background: #000;
+}
 
-    h2 {
-      color: #2afadf;
-      text-shadow: 0 0 15px #00ffe7;
-    }
+section {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 900px;
+  border-radius: 16px;
+  background: rgba(10,10,30,0.85);
+  box-shadow: 0 0 25px #ff00de66;
+}
 
-    ul {
-      text-align: left;
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 18px;
-      line-height: 1.8em;
-    }
+h2 {
+  color: #2afadf;
+  text-shadow: 0 0 15px #00ffe7;
+}
 
-    .cta {
-      margin-top: 25px;
-      padding: 18px 32px;
-      font-size: 22px;
-      background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-      border-radius: 30px;
-      display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      box-shadow: 0 0 25px #ff00decc, 0 0 45px #00ffe7cc;
-      transition: 0.3s;
-    }
+ul {
+  text-align: left;
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.8em;
+}
 
-    .cta:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #ff00de, 0 0 70px #00ffe7;
-    }
+.cta {
+  margin-top: 25px;
+  padding: 18px 32px;
+  font-size: 22px;
+  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
+  border-radius: 30px;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 25px #ff00decc, 0 0 45px #00ffe7cc;
+  transition: 0.3s;
+}
 
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 14px;
-      background: rgba(0,0,0,0.85);
-      color: #aaa;
-      letter-spacing: 1px;
-    }
-  </style>
+.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #ff00de, 0 0 70px #00ffe7;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 14px;
+  background: rgba(0,0,0,0.85);
+  color: #aaa;
+  letter-spacing: 1px;
+}
+</style>
 </head>
 <body>
-  <header>🚀 IMOTV - A Revolução do IPTV 🚀</header>
 
-  <!-- Player -->
-  <video id="video" controls autoplay width="960" height="540"></video>
-  <script>
-    if (Hls.isSupported()) {
-      var video = document.getElementById('video');
-      var hls = new Hls();
-      hls.loadSource("http://38.99.238.67:14004"); // Se esse link não for .m3u8, precisa de conversão TS -> HLS
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = "http://38.99.238.67:14004";
-    }
-  </script>
+<header>🚀 IMOTV - A Revolução do IPTV 🚀</header>
 
-  <!-- Conteúdo -->
-  <section>
-    <h2>Por que escolher a IMOTV?</h2>
-    <ul>
-      <li>⚡ +5.000 canais nacionais e internacionais</li>
-      <li>🎬 Filmes e séries em HD / Full HD</li>
-      <li>📱 Roda em Smart TV, PC, Celular e TV Box</li>
-      <li>🚀 Zapping ultrarrápido</li>
-      <li>🎁 Teste grátis de 4 horas</li>
-    </ul>
-    <a class="cta" href="https://wa.me/5531992110188">💬 Teste Agora no WhatsApp</a>
-  </section>
+<!-- Player -->
+<div id="player"></div>
+<script>
+  var player = new Clappr.Player({
+    source: "http://38.99.238.67:14004", // link que você enviou
+    parentId: "#player",
+    autoPlay: true,
+    mute: false,
+    height: "100%",
+    width: "100%"
+  });
+</script>
 
-  <footer>
-    © 2025 IMOTV - Todos os direitos reservados | Suporte via WhatsApp: (31) 99211-0188
-  </footer>
+<!-- Conteúdo de venda -->
+<section>
+<h2>Por que escolher a IMOTV?</h2>
+<ul>
+  <li>⚡ Mais de 5.000 canais nacionais e internacionais</li>
+  <li>🎬 Filmes e séries em HD / Full HD</li>
+  <li>📱 Funciona em Smart TV, PC, Celular e TV Box</li>
+  <li>🚀 Zapping ultrarrápido</li>
+  <li>🎁 Teste grátis por 4 horas</li>
+</ul>
+<a class="cta" href="https://wa.me/5531992110188">💬 Teste Agora no WhatsApp</a>
+</section>
+
+<footer>
+© 2025 IMOTV - Todos os direitos reservados | Suporte via WhatsApp: (31) 99211-0188
+</footer>
+
 </body>
 </html>
