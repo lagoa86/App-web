@@ -1,136 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMOTV - IPTV ao Vivo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IMOTV - IPTV 4K Futurista</title>
 
-<!-- Meta tags Open Graph para prévia no WhatsApp/Facebook -->
-<meta property="og:title" content="🔥 IMOTV - Assista TV Online Agora 🔥">
-<meta property="og:description" content="Canais ao vivo, filmes e séries em Full HD. Teste grátis 4 horas!">
-<meta property="og:image" content="https://static.vecteezy.com/ti/vetor-gratis/p1/15680570-familia-sentada-no-sofa-e-assistindo-tv-na-sala-de-estar-gratis-vetor.jpg">
-<meta property="og:url" content="https://SEULINK.com">
+  <!-- Meta tags para WhatsApp e redes sociais -->
+  <meta property="og:title" content="🚀 IMOTV - Assista TV 4K Online Agora!" />
+  <meta property="og:description" content="Canais ao vivo, filmes e séries em 4K. Teste grátis por 4 horas!"/>
+  <meta property="og:image" content="https://cdn.pixabay.com/photo/2020/11/29/16/36/television-5787393_1280.jpg" />
+  <meta property="og:url" content="https://seusite.com" />
+  <meta property="og:type" content="website" />
 
-<!-- Clappr player -->
-<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <!-- Fonte Orbitron + Animações -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+  <!-- Clappr Player (funciona com .mp4 e .m3u8) -->
+  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clappr-plugin-level-selector@1.0.7/dist/level-selector.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clappr-plugin-hls@0.1.0/dist/hls.min.js"></script>
 
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  color: #fff;
-  text-align: center;
-  background: url('https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
+  <style>
+    /* Fundo Neo-Cyberpunk */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Exo 2', sans-serif;
+      background: #000 url('https://images.unsplash.com/photo-1626434024823-65a77a32f256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 1.2s ease-in-out;
+    }
 
-header {
-  padding: 30px;
-  font-size: 36px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px #ff00cc, 0 0 40px #00eaff;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-#player {
-  width: 100%;
-  max-width: 960px;
-  height: 540px;
-  margin: 40px auto;
-  border: 3px solid #0ff;
-  border-radius: 16px;
-  box-shadow: 0 0 30px #00ffe7, 0 0 60px #ff00de inset;
-  background: #000;
-}
+    /* Header com efeito neon brilhante */
+    header {
+      padding: 40px 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00ff88, #00aaff, #ff00aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(0, 255, 136, 0.8),
+                   0 0 30px rgba(0, 170, 255, 0.6);
+      position: relative;
+    }
 
-section {
-  margin: 40px auto;
-  padding: 30px;
-  max-width: 900px;
-  border-radius: 16px;
-  background: rgba(10,10,30,0.85);
-  box-shadow: 0 0 25px #ff00de66;
-}
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff88, #ff00aa, transparent);
+    }
 
-h2 {
-  color: #2afadf;
-  text-shadow: 0 0 15px #00ffe7;
-}
+    /* Player com borda neon pulsante */
+    #player {
+      width: 94%;
+      max-width: 1000px;
+      height: 560px;
+      margin: 30px auto;
+      border: 3px solid #00ff88;
+      border-radius: 20px;
+      box-shadow: 
+        0 0 20px rgba(0, 255, 136, 0.5),
+        0 0 40px rgba(0, 170, 255, 0.4),
+        inset 0 0 30px rgba(0, 255, 136, 0.3);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+    }
 
-ul {
-  text-align: left;
-  max-width: 600px;
-  margin: 20px auto;
-  font-size: 18px;
-  line-height: 1.8em;
-}
+    #player:hover {
+      transform: scale(1.02);
+      box-shadow: 
+        0 0 30px rgba(0, 255, 136, 0.8),
+        0 0 60px rgba(0, 170, 255, 0.6),
+        inset 0 0 40px rgba(0, 255, 136, 0.5);
+    }
 
-.cta {
-  margin-top: 25px;
-  padding: 18px 32px;
-  font-size: 22px;
-  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-  border-radius: 30px;
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  box-shadow: 0 0 25px #ff00decc, 0 0 45px #00ffe7cc;
-  transition: 0.3s;
-}
+    /* Seção de benefícios */
+    .features {
+      margin: 30px auto;
+      padding: 40px 30px;
+      max-width: 900px;
+      border-radius: 20px;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+    }
 
-.cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px #ff00de, 0 0 70px #00ffe7;
-}
+    .features h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #00ff88;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+      margin-bottom: 25px;
+    }
 
-footer {
-  margin-top: 40px;
-  padding: 20px;
-  font-size: 14px;
-  background: rgba(0,0,0,0.85);
-  color: #aaa;
-  letter-spacing: 1px;
-}
-</style>
+    .features ul {
+      list-style: none;
+      text-align: left;
+      margin: 25px auto;
+      font-size: 18px;
+      line-height: 2.2;
+      max-width: 650px;
+    }
+
+    .features ul li {
+      position: relative;
+      padding-left: 40px;
+      opacity: 0;
+      animation: slideIn 0.6s forwards;
+    }
+
+    .features ul li:nth-child(1) { animation-delay: 0.2s; }
+    .features ul li:nth-child(2) { animation-delay: 0.4s; }
+    .features ul li:nth-child(3) { animation-delay: 0.6s; }
+    .features ul li:nth-child(4) { animation-delay: 0.8s; }
+    .features ul li:nth-child(5) { animation-delay: 1.0s; }
+
+    .features ul li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 20px;
+      color: #00ff88;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Botão CTA brilhante */
+    .cta {
+      margin: 30px auto;
+      padding: 18px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #00ff88, #00aaff, #ff00aa);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 
+        0 0 20px rgba(0, 255, 136, 0.7),
+        0 0 40px rgba(255, 0, 170, 0.6);
+      display: inline-block;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .cta:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 
+        0 0 30px rgba(0, 255, 136, 0.9),
+        0 0 60px rgba(255, 0, 170, 0.8);
+    }
+
+    /* Footer elegante */
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #aaa;
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(0, 255, 136, 0.3);
+    }
+
+    footer a {
+      color: #00ff88;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 
-<header>🚀 IMOTV - A Revolução do IPTV 🚀</header>
+  <header>
+    🔮 IMOTV | O FUTURO DA TV ESTÁ AQUI 🔮
+  </header>
 
-<!-- Player -->
-<div id="player"></div>
-<script>
-  var player = new Clappr.Player({
-    source: "http://38.99.238.67:14004", // link que você enviou
-    parentId: "#player",
-    autoPlay: true,
-    mute: false,
-    height: "100%",
-    width: "100%"
-  });
-</script>
+  <!-- Player Clappr com suporte a .mp4 -->
+  <div id="player"></div>
+  <script>
+    const player = new Clappr.Player({
+      source: "https://adssxcloud.online/4K/26682.mp4",
+      parentId: "#player",
+      autoPlay: true,
+      mute: false,
+      height: "100%",
+      width: "100%",
+      mediaControl: {
+        buttons: {
+          fullscreen: true,
+          volume: true,
+        }
+      },
+      plugins: [LevelSelector],
+      playback: {
+        hlsjsConfig: {
+          maxBufferSize: 10 * 1000 * 1000, // buffer para melhor streaming
+        }
+      },
+      watermark: "https://i.imgur.com/IMOTVlogo.png", // opcional: logo
+      position: "top-left",
+      waterMarkLink: "https://seusite.com"
+    });
+  </script>
 
-<!-- Conteúdo de venda -->
-<section>
-<h2>Por que escolher a IMOTV?</h2>
-<ul>
-  <li>⚡ Mais de 5.000 canais nacionais e internacionais</li>
-  <li>🎬 Filmes e séries em HD / Full HD</li>
-  <li>📱 Funciona em Smart TV, PC, Celular e TV Box</li>
-  <li>🚀 Zapping ultrarrápido</li>
-  <li>🎁 Teste grátis por 4 horas</li>
-</ul>
-<a class="cta" href="https://wa.me/5531992110188">💬 Teste Agora no WhatsApp</a>
-</section>
+  <!-- Seção de benefícios -->
+  <section class="features">
+    <h2>🌟 POR QUE A IMOTV É INCRÍVEL?</h2>
+    <ul>
+      <li>Canais em 4K, HD e Full HD com estabilidade total</li>
+      <li>Filmes e séries lançamentos antes da Netflix</li>
+      <li>Funciona em Smart TV, celular, PC, Fire Stick e Android Box</li>
+      <li>Streaming sem travamentos e sem buffering</li>
+      <li>✅ Teste grátis por 4 horas — sem cartão!</li>
+    </ul>
+    <a href="https://wa.me/5531992110188" class="cta" target="_blank">
+      💬 QUERO MEU TESTE AGORA!
+    </a>
+  </section>
 
-<footer>
-© 2025 IMOTV - Todos os direitos reservados | Suporte via WhatsApp: (31) 99211-0188
-</footer>
+  <footer>
+    © 2025 IMOTV – O Futuro da TV por Assinatura<br>
+    Suporte: <a href="https://wa.me/5531992110188">(31) 99211-0188</a> | Todos os direitos reservados
+  </footer>
 
 </body>
 </html>
