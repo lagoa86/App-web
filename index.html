@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>IMOTV - Vingadores Ultimato em 4K</title>
 
-  <!-- Meta tags para WhatsApp e redes sociais -->
+  <!-- Meta tags para WhatsApp -->
   <meta property="og:title" content="🎬 Vingadores Ultimato em 4K - Teste Grátis! | IMOTV" />
   <meta property="og:description" content="Assista Vingadores: Ultimato em 4K Full HD. Teste grátis por 4 horas no melhor IPTV!" />
   <meta property="og:image" content="https://static.vecteezy.com/ti/vetor-gratis/p1/15680570-familia-sentada-no-sofa-e-assistindo-tv-na-sala-de-estar-gratis-vetor.jpg" />
@@ -20,6 +20,13 @@
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
+    /* Reset básico para mobile */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -30,6 +37,7 @@
       text-align: center;
       overflow-x: hidden;
       animation: fadeIn 1.2s ease-in-out;
+      min-height: 100vh;
     }
 
     @keyframes fadeIn {
@@ -38,11 +46,11 @@
     }
 
     header {
-      padding: 40px 20px;
+      padding: 20px 15px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 38px;
+      font-size: 28px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -50,6 +58,13 @@
         0 0 15px rgba(255, 0, 128, 0.8),
         0 0 30px rgba(42, 250, 223, 0.7);
       position: relative;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        font-size: 38px;
+        padding: 40px 20px;
+      }
     }
 
     header::after {
@@ -63,19 +78,25 @@
       background: linear-gradient(90deg, transparent, #ff0080, #2afadf, transparent);
     }
 
-    #player {
+    /* Player responsivo */
+    .player-container {
       width: 94%;
       max-width: 1000px;
-      height: 560px;
-      margin: 30px auto;
+      margin: 20px auto;
       border: 3px solid #0ff;
       border-radius: 20px;
       box-shadow: 
         0 0 20px rgba(0, 255, 255, 0.6),
         0 0 40px rgba(0, 170, 255, 0.5),
         inset 0 0 30px rgba(0, 255, 255, 0.3);
-      background: #000;
       overflow: hidden;
+      background: #000;
+    }
+
+    #player {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9; /* Proporção 16:9 em todos os dispositivos */
     }
 
     .video-js {
@@ -85,12 +106,24 @@
 
     .vjs-control-bar {
       background: rgba(0, 0, 0, 0.8);
+      font-size: 16px;
     }
 
+    .vjs-big-play-button {
+      font-size: 4em !important;
+      height: 100px !important;
+      width: 100px !important;
+      border-radius: 50% !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    /* Informações do filme */
     .movie-info {
       max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
+      margin: 15px auto;
+      padding: 15px;
       background: rgba(10, 20, 40, 0.8);
       border-radius: 16px;
       border: 1px solid #2afadf;
@@ -99,38 +132,40 @@
 
     .movie-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 32px;
+      font-size: 26px;
       color: #2afadf;
       margin: 0;
       text-shadow: 0 0 10px rgba(42, 250, 223, 0.5);
     }
 
     .movie-subtitle {
-      font-size: 18px;
+      font-size: 16px;
       color: #aaa;
-      margin: 10px 0;
+      margin: 8px 0;
     }
 
     .movie-meta {
-      font-size: 16px;
+      font-size: 15px;
       color: #0ff;
-      margin: 10px 0;
+      margin: 8px 0;
       letter-spacing: 1px;
     }
 
     .movie-sinopse {
       max-width: 700px;
-      margin: 20px auto;
-      font-size: 17px;
+      margin: 15px auto;
+      padding: 0 10px;
+      font-size: 16px;
       line-height: 1.7;
       color: #ddd;
     }
 
+    /* Seção de benefícios */
     .features {
-      margin: 40px auto;
-      padding: 40px 30px;
+      margin: 30px auto;
+      padding: 25px 20px;
       max-width: 900px;
-      border-radius: 20px;
+      border-radius: 16px;
       background: rgba(10, 15, 30, 0.85);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(0, 255, 255, 0.3);
@@ -139,26 +174,25 @@
 
     .features h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
+      font-size: 26px;
       color: #2afadf;
       text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .features ul {
       list-style: none;
       text-align: left;
-      margin: 25px auto;
-      font-size: 18px;
+      margin: 20px auto;
+      font-size: 17px;
       line-height: 2.2;
       max-width: 650px;
+      padding-left: 10px;
     }
 
     .features ul li {
       position: relative;
-      padding-left: 40px;
-      opacity: 0;
-      animation: slideIn 0.6s forwards;
+      padding-left: 35px;
     }
 
     .features ul li::before {
@@ -166,24 +200,14 @@
       position: absolute;
       left: 0;
       top: 0;
-      font-size: 20px;
+      font-size: 18px;
       color: #2afadf;
     }
 
-    .features ul li:nth-child(1) { animation-delay: 0.2s; }
-    .features ul li:nth-child(2) { animation-delay: 0.4s; }
-    .features ul li:nth-child(3) { animation-delay: 0.6s; }
-    .features ul li:nth-child(4) { animation-delay: 0.8s; }
-    .features ul li:nth-child(5) { animation-delay: 1.0s; }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
+    /* Botão CTA grande para toque */
     .cta {
-      margin: 30px auto;
-      padding: 18px 40px;
+      margin: 25px auto;
+      padding: 18px 35px;
       font-size: 22px;
       font-weight: bold;
       font-family: 'Orbitron', sans-serif;
@@ -199,17 +223,17 @@
       letter-spacing: 1px;
     }
 
-    .cta:hover {
-      transform: scale(1.08) translateY(-3px);
+    .cta:hover, .cta:active {
+      transform: scale(1.05);
       box-shadow: 
         0 0 30px rgba(255, 0, 128, 0.9),
         0 0 60px rgba(42, 250, 223, 0.8);
     }
 
     footer {
-      margin-top: 50px;
-      padding: 20px;
-      font-size: 14px;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 13px;
       background: rgba(0, 0, 0, 0.7);
       color: #aaa;
       letter-spacing: 1px;
@@ -220,6 +244,14 @@
       color: #2afadf;
       text-decoration: none;
     }
+
+    /* Ajuste para telas menores */
+    @media (max-width: 480px) {
+      .movie-title { font-size: 22px; }
+      .movie-sinopse { font-size: 15px; }
+      .features h2 { font-size: 22px; }
+      .cta { font-size: 20px; padding: 16px 30px; }
+    }
   </style>
 </head>
 <body>
@@ -228,9 +260,9 @@
     🎬 IMOTV | VINGADORES: ULTIMATO EM 4K 🎬
   </header>
 
-  <!-- Player com video.js -->
-  <div id="player">
-    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="1000" height="560" data-setup="{}">
+  <!-- Player responsivo -->
+  <div class="player-container">
+    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}">
       <source src="https://adssxcloud.online/4K/26682.mp4" type="video/mp4" />
       Seu navegador não suporta vídeo HTML5.
     </video>
@@ -258,7 +290,7 @@
       <li><strong>Sem travamentos</strong>: Servidores estáveis e streaming ultra-rápido</li>
       <li><strong>🎁 Teste grátis</strong>: 4 horas sem compromisso — sem cartão!</li>
     </ul>
-    <!-- Botão WhatsApp com mensagem automática -->
+    <!-- WhatsApp com mensagem automática -->
     <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+fazer+o+teste+gr%C3%A1tis+da+IMOTV+agora%2C+por+favor%21" 
        class="cta" target="_blank">
       💬 QUERO MEU TESTE AGORA!
@@ -273,12 +305,12 @@
   <!-- Video.js JS -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
-    // Inicializa o player
+    // Configuração do player
     const player = videojs('my-video', {
       fluid: false,
       responsive: true,
-      autoplay: true,
-      preload: 'auto',
+      autoplay: false, // Autoplay desativado para mobile (navegadores bloqueiam)
+      preload: 'metadata', // carrega só metadados primeiro
       controls: true,
       html5: {
         hls: {
@@ -288,11 +320,16 @@
       }
     });
 
-    // Tenta reproduzir (com tratamento para bloqueio de autoplay)
-    player.ready(() => {
+    // Permite reprodução com toque (crucial para mobile)
+    document.querySelector('.cta, .vjs-big-play-button').addEventListener('click', () => {
       player.play().catch(e => {
-        console.warn("Reprodução automática bloqueada. Aguarde interação do usuário.", e);
+        console.log("Erro ao reproduzir: ", e);
       });
+    });
+
+    // Mensagem no console para ajudar no debug
+    player.ready(() => {
+      console.log("Player pronto. Toque no botão ou no play para iniciar.");
     });
   </script>
 
