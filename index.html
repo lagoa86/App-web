@@ -1,129 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMOTV - IPTV ao Vivo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOTV - IPTV Premium</title>
 
-    <!-- Open Graph para pré-visualização no WhatsApp -->
-    <meta property="og:title" content="IMOTV - IPTV ao Vivo">
-    <meta property="og:description" content="Assista IMOTV ao vivo agora! IPTV rápido e confiável. Fale conosco via WhatsApp.">
-    <meta property="og:image" content="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg">
-    <meta property="og:url" content="https://seusite.com">
-    <meta property="og:type" content="website">
+  <!-- Open Graph para WhatsApp preview -->
+  <meta property="og:title" content="IMOTV - O Melhor IPTV Premium">
+  <meta property="og:description" content="Canais, filmes e séries liberados. Teste grátis de 4 horas!">
+  <meta property="og:image" content="https://images.pexels.com/photos/57043/pexels-photo-57043.jpeg">
+  <meta property="og:url" content="https://seusite.com">
+  <meta property="og:type" content="website">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Fonte futurista -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- HLS.js -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <!-- HLS.js -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-    <style>
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, #00ffea33, transparent 70%);
-            animation: pulse 6s infinite alternate;
-            z-index: -1;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1) rotate(0deg);}
-            50% { transform: scale(1.2) rotate(10deg);}
-            100% { transform: scale(1) rotate(0deg);}
-        }
-        header { text-align: center; margin-top: 50px; }
-        header h1 { font-size: 4em; color: #00ffea; text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea; }
-        header p { font-size: 1.3em; color: #ccc; margin-top: 10px; }
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.6);
+    }
+    header h1 {
+      font-size: 3em;
+      color: #00ffea;
+      text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea;
+    }
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #ccc;
+    }
 
-        .player-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 50px 0;
-            border: 4px solid #00ffea;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset;
-            animation: glow 2s infinite alternate;
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset; }
-            50% { box-shadow: 0 0 60px #00ffea, 0 0 120px #00ffea inset; }
-            100% { box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset; }
-        }
-        video { width: 100%; height: auto; display: block; }
+    .player-container {
+      max-width: 900px;
+      margin: 40px auto;
+      border: 4px solid #00ffea;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset;
+    }
+    video { width: 100%; display: block; }
 
-        .whatsapp-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: #fff;
-            text-decoration: none;
-            padding: 18px 28px;
-            border-radius: 50px;
-            font-size: 1.4em;
-            box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset;
-            animation: pulseWhats 2s infinite alternate;
-        }
-        @keyframes pulseWhats {
-            0% { transform: scale(1); box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset; }
-            50% { transform: scale(1.1); box-shadow: 0 0 30px #25D366, 0 0 60px #25D366 inset; }
-            100% { transform: scale(1); box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset; }
-        }
+    .cta {
+      text-align: center;
+      margin: 50px 20px;
+    }
+    .cta h2 {
+      font-size: 2.5em;
+      color: #ffea00;
+      text-shadow: 0 0 15px #ffea00;
+    }
+    .cta p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      color: #ddd;
+    }
+    .cta a {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.3em;
+      text-decoration: none;
+      box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset;
+      transition: 0.3s;
+    }
+    .cta a:hover { background: #1ebe5d; }
 
-        footer { margin: 50px 0 20px 0; font-size: 0.9em; color: #555; }
-    </style>
+    .benefits {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .benefit {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,234,0.3);
+      transition: 0.3s;
+    }
+    .benefit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0,255,234,0.6);
+    }
+    .benefit h3 {
+      color: #00ffea;
+      margin-bottom: 10px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      font-size: 1.3em;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset;
+      animation: pulse 2s infinite alternate;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1);}
+      100% { transform: scale(1.1);}
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.9em;
+      background: rgba(0,0,0,0.5);
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>IMOTV</h1>
-        <p>Assista IPTV ao vivo agora! Rápido, confiável e sem travamentos.</p>
-    </header>
+  <header>
+    <h1>🔥 IMOTV - Seu IPTV Premium 🔥</h1>
+    <p>Assista aos melhores canais, filmes e séries sem travar! 🚀</p>
+  </header>
 
-    <div class="player-container">
-        <video id="video" controls autoplay></video>
+  <div class="player-container">
+    <video id="video" controls autoplay></video>
+  </div>
+
+  <div class="cta">
+    <h2>🎁 Teste Grátis por 4 Horas!</h2>
+    <p>Experimente agora sem compromisso. Veja a qualidade do nosso IPTV e depois ative seu plano!</p>
+    <a href="https://wa.me/5511999999999" target="_blank">Quero meu Teste Grátis</a>
+  </div>
+
+  <section class="benefits">
+    <div class="benefit">
+      <h3>📺 +10.000 Canais</h3>
+      <p>Esportes, filmes, séries, notícias e muito mais.</p>
     </div>
+    <div class="benefit">
+      <h3>⚡ Qualidade Full HD</h3>
+      <p>Imagem e som de alta definição em qualquer dispositivo.</p>
+    </div>
+    <div class="benefit">
+      <h3>🚀 Sem Travamentos</h3>
+      <p>Servidores rápidos e estáveis para sua diversão.</p>
+    </div>
+    <div class="benefit">
+      <h3>💸 Preço Acessível</h3>
+      <p>Planos que cabem no seu bolso com máxima qualidade.</p>
+    </div>
+  </section>
 
-    <a class="whatsapp-button" href="https://wa.me/5511999999999" target="_blank">
-        📲 Fale no WhatsApp
-    </a>
+  <a class="whatsapp-float" href="https://wa.me/5511999999999" target="_blank">💬 Fale no WhatsApp</a>
 
-    <footer>
-        © 2025 IMOTV. Todos os direitos reservados.
-    </footer>
+  <footer>
+    © 2025 IMOTV. Todos os direitos reservados.
+  </footer>
 
-    <script>
-        const video = document.getElementById('video');
-        const videoSrc = 'http://enegf3.dynamic-router-backend-net.site:80/459128922/153728325/4231093';
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = 'http://enegf3.dynamic-router-backend-net.site:80/459128922/153728325/4231093';
 
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(videoSrc);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                video.play();
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = videoSrc;
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-            });
-        }
-    </script>
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function() {
+        video.play();
+      });
+    }
+  </script>
 
 </body>
 </html>
