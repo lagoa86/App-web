@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMOTV - IPTV ao Vivo</title>
+
+    <!-- Open Graph para pré-visualização no WhatsApp -->
+    <meta property="og:title" content="IMOTV - IPTV ao Vivo">
+    <meta property="og:description" content="Assista IMOTV ao vivo agora! IPTV rápido e confiável. Fale conosco via WhatsApp.">
+    <meta property="og:image" content="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg">
+    <meta property="og:url" content="https://seusite.com">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Fundo animado */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #00ffea33, transparent 70%);
+            animation: pulse 6s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(0deg);}
+            50% { transform: scale(1.2) rotate(10deg);}
+            100% { transform: scale(1) rotate(0deg);}
+        }
+
+        header {
+            text-align: center;
+            margin-top: 50px;
+        }
+        header h1 {
+            font-size: 4em;
+            color: #00ffea;
+            text-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea;
+        }
+        header p {
+            font-size: 1.3em;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        .player-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 50px 0;
+            border: 4px solid #00ffea;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset; }
+            50% { box-shadow: 0 0 60px #00ffea, 0 0 120px #00ffea inset; }
+            100% { box-shadow: 0 0 40px #00ffea, 0 0 80px #00ffea inset; }
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 28px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset;
+            animation: pulseWhats 2s infinite alternate;
+        }
+
+        @keyframes pulseWhats {
+            0% { transform: scale(1); box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset; }
+            50% { transform: scale(1.1); box-shadow: 0 0 30px #25D366, 0 0 60px #25D366 inset; }
+            100% { transform: scale(1); box-shadow: 0 0 20px #25D366, 0 0 40px #25D366 inset; }
+        }
+
+        footer {
+            margin: 50px 0 20px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>IMOTV</h1>
+        <p>Assista IPTV ao vivo agora! Rápido, confiável e sem travamentos.</p>
+    </header>
+
+    <div class="player-container">
+        <video controls autoplay>
+            <source src="http://enegf3.dynamic-router-backend-net.site:80/459128922/153728325/4231093" type="application/x-mpegURL">
+            Seu navegador não suporta reprodução de vídeo.
+        </video>
+    </div>
+
+    <a class="whatsapp-button" href="https://wa.me/551131992110188" target="_blank">
+        📲 Fale no WhatsApp
+    </a>
+
+    <footer>
+        © 2025 IMOTV. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
