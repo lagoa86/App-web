@@ -2,23 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>IMOTV - Assista Agora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOTV - Sua TV Online</title>
+
+  <!-- Meta tags para prévia no WhatsApp/Facebook -->
+  <meta property="og:title" content="🔥 Assista TV Online com IMOTV 🔥">
+  <meta property="og:description" content="Canais ao vivo, filmes e séries. Teste grátis por 4 horas!">
+  <meta property="og:image" content="https://static.vecteezy.com/ti/vetor-gratis/p1/15680570-familia-sentada-no-sofa-e-assistindo-tv-na-sala-de-estar-gratis-vetor.jpg">
+  <meta property="og:url" content="https://SEULINK.com"> <!-- coloque o link da sua landing page hospedada -->
+
+  <!-- Clappr Player -->
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
   <style>
     body {
       margin: 0;
-      background: linear-gradient(135deg, #000000, #111111, #222222);
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
+      background: url("https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg") no-repeat center center fixed;
+      background-size: cover;
     }
+
     header {
-      padding: 30px;
-      font-size: 28px;
+      background: rgba(0,0,0,0.8);
+      padding: 25px;
+      font-size: 32px;
       font-weight: bold;
-      background: #ff0000;
-      text-shadow: 2px 2px 6px #000;
+      color: #ff0000;
+      text-shadow: 2px 2px 8px black;
     }
+
     #player {
       width: 100%;
       max-width: 960px;
@@ -28,9 +42,32 @@
       border-radius: 16px;
       box-shadow: 0 0 25px #ff0000aa;
     }
+
+    section {
+      background: rgba(0,0,0,0.7);
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 900px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8em;
+    }
+
     .cta {
       margin-top: 30px;
-      padding: 20px;
+      padding: 20px 35px;
       font-size: 22px;
       background: #00cc44;
       border-radius: 12px;
@@ -41,24 +78,26 @@
       box-shadow: 0 0 15px #00cc44cc;
       transition: 0.3s;
     }
+
     .cta:hover {
       background: #009933;
       box-shadow: 0 0 25px #00ff66cc;
     }
+
     footer {
       margin-top: 40px;
       padding: 15px;
       font-size: 14px;
-      background: #111;
+      background: rgba(0,0,0,0.85);
       color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>🔥 IMOTV - Assista TV ao Vivo Agora! 🔥</header>
+  <header>🔥 IMOTV - A Melhor Experiência em IPTV 🔥</header>
 
+  <!-- Player -->
   <div id="player"></div>
-
   <script>
     var player = new Clappr.Player({
       source: "http://cdn.adssxcloud.online:80/954187818/704602200/785150.ts",
@@ -70,10 +109,21 @@
     });
   </script>
 
-  <a class="cta" href="https://wa.me/5531992110188">📲 Teste Grátis 4h no WhatsApp</a>
+  <!-- Conteúdo de venda -->
+  <section>
+    <h2>Por que escolher a IMOTV?</h2>
+    <ul>
+      <li>📺 Mais de 5.000 canais nacionais e internacionais</li>
+      <li>🎬 Filmes e séries sob demanda</li>
+      <li>⚡ Qualidade HD e Full HD</li>
+      <li>📱 Acesso em Smart TV, PC, Smartphone e TV Box</li>
+      <li>⏱ Teste grátis por <strong>4 horas</strong></li>
+    </ul>
+    <a class="cta" href="https://wa.me/5531992110188">📲 Fale Conosco no WhatsApp</a>
+  </section>
 
   <footer>
-    © 2025 IMOTV - Sua melhor experiência em IPTV
+    © 2025 IMOTV - Sua diversão garantida | Suporte via WhatsApp: (31) 99211-0188
   </footer>
 </body>
 </html>
