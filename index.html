@@ -8,7 +8,7 @@
 
   <!-- Meta tags para WhatsApp -->
   <meta property="og:title" content="🎬 Vingadores Ultimato em 4K - Teste Grátis! | IMOTV" />
-  <meta property="og:description" content="Assista Vingadores: Ultimato em 4K Full HD. Teste grátis por 4 horas no melhor IPTV!" />
+  <meta property="og:description" content="Assista Vingadores: Ultimato em 4K Full HD. Teste grátis por 24h no melhor IPTV!" />
   <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUagDvW_OyyJkg5Oxz4uYD3xzg_-QTdUdUlPsiYYTnq56q9aGdYywcBEw&s=10"/>
   <meta property="og:url" content="https://seusite.com" />
   <meta property="og:type" content="website" />
@@ -16,9 +16,6 @@
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Video.js CSS -->
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
     * {
@@ -59,10 +56,9 @@
         0 0 20px rgba(42, 250, 223, 0.5);
     }
 
-    /* Player otimizado para mobile */
     .player-container {
       width: 94%;
-      max-width: 450px; /* Tamanho ideal para smartphone */
+      max-width: 450px;
       margin: 20px auto;
       border: 3px solid #0ff;
       border-radius: 16px;
@@ -74,52 +70,27 @@
       background: #000;
     }
 
-    #player {
+    .fake-player {
       width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9; /* Proporção 16:9 perfeita */
-    }
-
-    .video-js {
+      aspect-ratio: 16 / 9;
       background: #000;
-      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      cursor: pointer;
+      position: relative;
     }
 
-    /* Força os controles do player serem visíveis no mobile */
-    .vjs-control-bar {
-      display: flex !important;
-      opacity: 1 !important;
-    }
-
-    .vjs-play-control {
-      font-size: 1.5em;
-    }
-
-    .vjs-progress-control {
-      height: 10px;
-    }
-
-    .vjs-big-play-button {
-      font-size: 4em;
-      height: 100px;
-      width: 100px;
-      border-radius: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
-      border: 3px solid #0ff;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-    }
-
-    .vjs-big-play-button:before {
+    .play-overlay {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      content: "▶";
-      font-size: 3em;
-      color: #fff;
+      font-size: 60px;
+      color: white;
+      text-shadow: 0 0 15px rgba(0,255,255,0.8);
     }
 
-    /* Informações do filme */
     .movie-info {
       max-width: 450px;
       margin: 15px auto;
@@ -247,6 +218,49 @@
       color: #aaa;
       letter-spacing: 1px;
     }
+
+    /* Overlay de mensagem */
+    #watch-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.92);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #2afadf;
+      box-shadow: 0 0 25px rgba(42, 250, 223, 0.7);
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      z-index: 1000;
+      display: none;
+      max-width: 90%;
+      width: 320px;
+    }
+
+    #watch-message button {
+      margin-top: 12px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 16px;
+    }
+
+    #watch-message .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    #watch-message .btn-close {
+      background: #ff0080;
+      color: white;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
@@ -255,17 +269,14 @@
     🎬 IMOTV | VINGADORES: ULTIMATO EM 4K 🎬
   </header>
 
-  <!-- Player ajustado para smartphone -->
+  <!-- FALSO PLAYER (100% FUNCIONAL) -->
   <div class="player-container">
-    <div id="player">
-      <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="450" height="253" data-setup="{}">
-        <source src="https://adssxcloud.online/4K/26682.mp4" type="video/mp4" />
-        Seu navegador não suporta vídeo HTML5.
-      </video>
+    <div class="fake-player" onclick="startExperience()">
+      <div class="play-overlay">▶</div>
+      <div>Clique para iniciar a experiência IMOTV</div>
     </div>
   </div>
 
-  <!-- Informações do filme -->
   <div class="movie-info">
     <h1 class="movie-title">Vingadores: Ultimato</h1>
     <p class="movie-subtitle">Avengers: Endgame (2019)</p>
@@ -277,7 +288,6 @@
     os Vingadores se reúnem mais uma vez para desfazer as ações de Thanos e restaurar a ordem no universo.
   </p>
 
-  <!-- Benefícios -->
   <section class="features">
     <h2>🌟 POR QUE ESCOLHER A IMOTV?</h2>
     <ul>
@@ -285,9 +295,9 @@
       <li><strong>Lançamentos</strong>: Filmes antes da Netflix</li>
       <li><strong>Funciona em tudo</strong>: Celular, TV, PC</li>
       <li><strong>Sem travamentos</strong>: Streaming estável</li>
-      <li><strong>🎁 Teste grátis</strong>: 4 horas — sem cartão</li>
+      <li><strong>🎁 Teste grátis</strong>: <strong>24 horas</strong> — sem cartão</li>
     </ul>
-    <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+fazer+o+teste+gr%C3%A1tis+da+IMOTV+agora%2C+por+favor%21" 
+    <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+meu+teste+gr%C3%A1tis+de+24h+da+IMOTV%21" 
        class="cta" target="_blank">
       💬 QUERO MEU TESTE AGORA!
     </a>
@@ -295,33 +305,41 @@
 
   <footer>
     © 2025 IMOTV – Todos os direitos reservados<br>
-    Suporte: <a href="https://wa.me/5531992110188">(31) 99211-0188</a>
+    Suporte: <a href="https://wa.me/5531992110188" style="color:#2afadf;">(31) 99211-0188</a>
   </footer>
 
-  <!-- Video.js JS -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <!-- Mensagem simulada aos 30s -->
+  <div id="watch-message">
+    <p>Quer terminar de assistir?<br>Entre em contato e peça seu teste de 24H</p>
+    <button class="btn-whatsapp" onclick="window.open('https://wa.me/5531992110188?text=Ol%C3%A1!+Vi+o+filme+e+quero+meu+teste+de+24h+gr%C3%A1tis!', '_blank')">
+      💬 Pedir teste no WhatsApp
+    </button>
+    <button class="btn-close" onclick="document.getElementById('watch-message').style.display='none'">
+      Fechar
+    </button>
+  </div>
+
   <script>
-    const player = videojs('my-video', {
-      responsive: true,
-      autoplay: false,  // Evita bloqueio no mobile
-      preload: 'metadata', // Leve no início
-      controls: true,
-      fluid: false,
-      html5: {
-        hls: {
-          overrideNative: true
-        }
-      }
-    });
+    let timer = null;
+    let started = false;
 
-    // No mobile, o play é ativado pelo botão grande
-    player.on('useractive', () => {
-      player.controlBar.show();
-    });
+    function startExperience() {
+      if (started) return;
+      started = true;
 
-    player.on('userinactive', () => {
-      player.controlBar.show(); // Mantém visível
-    });
+      // Simula reprodução por 30 segundos
+      document.querySelector('.fake-player').innerHTML = `
+        <div style="font-size:16px; text-align:center; padding:10px;">
+          🎥 Transmitindo Vingadores: Ultimato em 4K...<br>
+          <small>Aguarde 30 segundos para liberar seu teste!</small>
+        </div>
+      `;
+
+      // Após 30s, mostra a mensagem
+      setTimeout(() => {
+        document.getElementById('watch-message').style.display = 'block';
+      }, 30000);
+    }
   </script>
 
 </body>
