@@ -6,137 +6,42 @@
 <meta name="theme-color" content="#000" />
 <title>IMOTV - Mufasa O Rei Leão (2024) 4K</title>
 
+<!-- META para WhatsApp / Redes Sociais -->
+<meta property="og:title" content="🎬 Mufasa O Rei Leão 4K - Teste Grátis! | IMOTV" />
+<meta property="og:description" content="Assista Mufasa: O Rei Leão 4K Full HD. Teste grátis por 24h no melhor IPTV!" />
+<meta property="og:image" content="https://kutx00.top/images/iMVuv6Gz5fj7vZ51IjRF3AiW87y_big.jpg" />
+<meta property="og:url" content="https://imotv.netlify.app/" />
+<meta property="og:type" content="website" />
+
 <!-- Fontes -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ... (mesmo CSS do player que enviei antes, sem alterações) ... */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Exo 2', sans-serif;
-  background: #000 url('https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
-}
-header {
-  padding: 15px 10px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 10px rgba(255, 0, 128, 0.6), 0 0 20px rgba(42, 250, 223, 0.5);
-}
-.player-container {
-  width: 94%;
-  max-width: 600px;
-  margin: 20px auto;
-  border: 3px solid #0ff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5),
-              0 0 30px rgba(0, 170, 255, 0.4),
-              inset 0 0 20px rgba(0, 255, 255, 0.2);
-  background: #000;
-  position: relative;
-}
-.player-container iframe {
-  width: 100%;
-  height: 360px;
-  border: none;
-}
-.time-counter {
-  position: absolute;
-  top: 10px; right: 10px;
-  background: rgba(0,0,0,0.7);
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: #2afadf;
-}
-.movie-info, .movie-sinopse, .features {
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 15px;
-  border-radius: 12px;
-  background: rgba(10, 20, 40, 0.85);
-  border: 1px solid #2afadf;
-}
-.movie-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 22px;
-  color: #2afadf;
-}
-.cta {
-  margin: 25px auto;
-  padding: 16px 35px;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
-  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), 0 0 30px rgba(42, 250, 223, 0.5);
-  display: inline-block;
-}
-footer {
-  margin-top: 40px;
-  padding: 15px;
-  font-size: 13px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #aaa;
-}
-#watch-message {
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.95);
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  border: 2px solid #2afadf;
-  box-shadow: 0 0 30px rgba(42, 250, 223, 0.8);
-  text-align: center;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 18px;
-  z-index: 1000;
-  display: none;
-  width: 340px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
+body { font-family: 'Exo 2', sans-serif; background: #000 url('https://pipocasclub.com.br/wp-content/uploads/2019/10/netflix-3.jpg') no-repeat center center fixed; background-size: cover; color: #fff; text-align: center; min-height: 100vh; }
+header { padding: 15px 10px; font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 900; background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 10px rgba(255,0,128,0.6),0 0 20px rgba(42,250,223,0.5); }
+.player-container { width: 94%; max-width: 600px; margin: 20px auto; border: 3px solid #0ff; border-radius: 16px; overflow: hidden; box-shadow: 0 0 15px rgba(0,255,255,0.5),0 0 30px rgba(0,170,255,0.4),inset 0 0 20px rgba(0,255,255,0.2); background: #000; position: relative; }
+.player-container iframe { width: 100%; height: 360px; border: none; }
+.time-counter { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); padding: 6px 12px; border-radius: 6px; font-family: 'Orbitron', sans-serif; font-weight: bold; font-size: 16px; color: #2afadf; }
+.movie-info, .movie-sinopse, .features { max-width: 600px; margin: 15px auto; padding: 15px; border-radius: 12px; background: rgba(10,20,40,0.85); border: 1px solid #2afadf; }
+.movie-title { font-family: 'Orbitron', sans-serif; font-size: 22px; color: #2afadf; }
+.cta { margin: 25px auto; padding: 16px 35px; font-size: 20px; font-weight: bold; font-family: 'Orbitron', sans-serif; background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf); color: white; text-decoration: none; border-radius: 50px; box-shadow: 0 0 15px rgba(255,0,128,0.6),0 0 30px rgba(42,250,223,0.5); display: inline-block; }
+footer { margin-top: 40px; padding: 15px; font-size: 13px; background: rgba(0,0,0,0.7); color: #aaa; }
+#watch-message { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.95); color: white; padding: 20px; border-radius: 12px; border: 2px solid #2afadf; box-shadow: 0 0 30px rgba(42,250,223,0.8); text-align: center; font-family: 'Orbitron', sans-serif; font-size: 18px; z-index: 1000; display: none; width: 340px; opacity: 0; transition: opacity 0.5s ease; }
 #watch-message.show { opacity: 1; }
-#watch-message button {
-  margin-top: 12px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-}
+#watch-message button { margin-top: 12px; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; }
 .btn-whatsapp { background: #25D366; color: white; }
 .btn-close { background: #ff0080; color: white; margin-top: 8px; }
 </style>
 </head>
 <body>
 
-<header>
-  🎬 IMOTV | Mufasa: O Rei Leão 4K 🎬
-</header>
+<header>🎬 IMOTV | Mufasa: O Rei Leão 4K 🎬</header>
 
 <div class="player-container">
-  <iframe 
-    src="https://drive.google.com/file/d/1-BAu9-PLuDc0HUkjbiOU-cTc8MvusR92/preview" 
-    allow="autoplay; fullscreen" 
-    allowfullscreen>
-  </iframe>
+  <iframe src="https://drive.google.com/file/d/1-BAu9-PLuDc0HUkjbiOU-cTc8MvusR92/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <div class="time-counter" id="time-counter">30s</div>
 </div>
 
@@ -146,9 +51,7 @@ footer {
   <p>🎬19/12/2024 (BR)<br>Aventura, Família, Animação<br>2h 1m | 🔴 4K</p>
 </div>
 
-<p class="movie-sinopse">
-  Simba, tendo-se tornado rei das Pride Lands, está determinado a fazer com que o seu filho siga os seus passos. Ao mesmo tempo que isto acontece, vamos conhecer a história por detrás de Mufasa, entendo melhor a sua origem.
-</p>
+<p class="movie-sinopse">Simba, tendo-se tornado rei das Pride Lands, está determinado a fazer com que o seu filho siga os seus passos. Ao mesmo tempo que isto acontece, vamos conhecer a história por detrás de Mufasa, entendo melhor a sua origem.</p>
 
 <section class="features">
   <h2>🌟 POR QUE ESCOLHER A IMOTV?</h2>
@@ -159,32 +62,24 @@ footer {
     <li>⚡ Sem travamentos</li>
     <li>⚡ 🎁 Teste grátis 24h</li>
   </ul>
-  <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+meu+teste+gr%C3%A1tis+de+24h+da+IMOTV%21" class="cta" target="_blank">
-    💬 QUERO MEU TESTE AGORA!
-  </a>
+  <a href="https://wa.me/5531992110188?text=Ol%C3%A1%21+Quero+meu+teste+gr%C3%A1tis+de+24h+da+IMOTV%21" class="cta" target="_blank">💬 QUERO MEU TESTE AGORA!</a>
 </section>
 
 <footer>
-  © 2025 IMOTV – Todos os direitos reservados<br>
-  Suporte: <a href="https://wa.me/5531992110188" style="color:#2afadf;">(31) 99211-0188</a>
+© 2025 IMOTV – Todos os direitos reservados<br>
+Suporte: <a href="https://wa.me/5531992110188" style="color:#2afadf;">(31) 99211-0188</a>
 </footer>
 
 <div id="watch-message">
   <p>Quer terminar de assistir?<br>Peça seu teste de 24H no WhatsApp</p>
-  <button class="btn-whatsapp" onclick="window.open('https://wa.me/5531992110188?text=Ol%C3%A1!+Vi+o+filme+e+quero+meu+teste+de+24h+gr%C3%A1tis!', '_blank')">
-    💬 Pedir teste
-  </button>
-  <button class="btn-close" onclick="closePopup()">
-    Fechar
-  </button>
+  <button class="btn-whatsapp" onclick="window.open('https://wa.me/5531992110188?text=Ol%C3%A1!+Vi+o+filme+e+quero+meu+teste+de+24h+gr%C3%A1tis!', '_blank')">💬 Pedir teste</button>
+  <button class="btn-close" onclick="closePopup()">Fechar</button>
 </div>
 
 <script>
 const counter = document.getElementById('time-counter');
 const message = document.getElementById('watch-message');
 let countdown = 30;
-
-// Contador de 30 segundos
 const interval = setInterval(() => {
   countdown--;
   counter.textContent = countdown + 's';
@@ -194,13 +89,10 @@ const interval = setInterval(() => {
   }
 }, 1000);
 
-// Mostrar popup
 function showPopup(){
   message.style.display = 'block';
   setTimeout(()=> message.classList.add('show'), 10);
 }
-
-// Fechar popup
 function closePopup(){
   message.classList.remove('show');
   setTimeout(()=> message.style.display='none', 500);
