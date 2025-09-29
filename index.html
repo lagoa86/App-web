@@ -6,13 +6,6 @@
 <meta name="theme-color" content="#000" />
 <title>IMOTV - Mufasa O Rei Leão (2024) 4K</title>
 
-<!-- Meta tags para WhatsApp -->
-<meta property="og:title" content="🎬Mufasa O Rei Leão 4K - Teste Grátis! | IMOTV" />
-<meta property="og:description" content="Assista Mufasa: O Rei Leão 4K Full HD. Teste grátis por 24h no melhor IPTV!" />
-<meta property="og:image" content="https://kutx00.top/images/iMVuv6Gz5fj7vZ51IjRF3AiW87y_big.jpg"/>
-<meta property="og:url" content="https://seusite.com" />
-<meta property="og:type" content="website" />
-
 <!-- Fontes -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
@@ -50,11 +43,10 @@ header {
   background: #000;
   position: relative;
 }
-video {
+.player-container iframe {
   width: 100%;
-  height: auto;
-  background: #000;
-  cursor: pointer;
+  height: 360px;
+  border: none;
 }
 .time-counter {
   position: absolute;
@@ -140,10 +132,11 @@ footer {
 </header>
 
 <div class="player-container">
-  <video id="player" controls autoplay muted playsinline>
-    <source src="https://drive.google.com/file/d/1-BAu9-PLuDc0HUkjbiOU-cTc8MvusR92/view4" type="video/mp4">
-    Seu navegador não suporta vídeo em HTML5.
-  </video>
+  <iframe 
+    src="https://drive.google.com/file/d/1-BAu9-PLuDc0HUkjbiOU-cTc8MvusR92/preview" 
+    allow="autoplay; fullscreen" 
+    allowfullscreen>
+  </iframe>
   <div class="time-counter" id="time-counter">30s</div>
 </div>
 
@@ -187,47 +180,31 @@ footer {
 </div>
 
 <script>
-const video = document.getElementById('player');
-const message = document.getElementById('watch-message');
 const counter = document.getElementById('time-counter');
-let shown = false;
-let countdown = 30; // segundos
-
-// Autoplay com muted
-video.muted = true;
-video.play().catch(() => console.log('Autoplay bloqueado'));
+const message = document.getElementById('watch-message');
+let countdown = 30;
 
 // Contador de 30 segundos
 const interval = setInterval(() => {
-  if(shown) return clearInterval(interval);
   countdown--;
   counter.textContent = countdown + 's';
   if(countdown <= 0){
     clearInterval(interval);
-    video.pause();
     showPopup();
   }
 }, 1000);
 
-// Mostrar popup com fade
+// Mostrar popup
 function showPopup(){
-  message.classList.add('show');
-  shown = true;
+  message.style.display = 'block';
+  setTimeout(()=> message.classList.add('show'), 10);
 }
 
 // Fechar popup
 function closePopup(){
   message.classList.remove('show');
-  video.play();
+  setTimeout(()=> message.style.display='none', 500);
 }
-
-// Clique no vídeo: ativa áudio
-video.addEventListener('click', () => {
-  if(video.muted){
-    video.muted = false;
-    video.play();
-  }
-});
 </script>
 
 </body>
